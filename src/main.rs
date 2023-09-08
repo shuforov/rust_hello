@@ -7,7 +7,8 @@ use opencv::{
 
 fn main() -> Result<()> {
     // Open a GUI window
-    highgui::named_window("window", highgui::WINDOW_FULLSCREEN)?;
+    highgui::named_window("window", highgui::WINDOW_NORMAL)?;
+    highgui::resize_window("window", 640, 480)?;
     // Open the web-camera (assuming you have one)
     let mut cam = videoio::VideoCapture::new(0, videoio::CAP_ANY)?;
     let mut frame = Mat::default(); // This array will store the web-cam data
@@ -21,5 +22,6 @@ fn main() -> Result<()> {
             break;
         }
     }
+    println!("test");
     Ok(())
 }
